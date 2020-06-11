@@ -23,13 +23,13 @@
 //////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
-// Stage Lab SysQ logger class header file
+// Stage Lab Cuems logger class header file
 //////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
 
-#ifndef SYSQLOGGER_CLASS_H
-#define SYSQLOGGER_CLASS_H
+#ifndef CUEMSLOGGER_H
+#define CUEMSLOGGER_H
 
 #include <string>
 #include <filesystem>
@@ -38,11 +38,11 @@
 using namespace std;
 namespace fs = std::filesystem;
 
-class SysQLogger
+class CuemsLogger
 {
     public:
-        SysQLogger( const string slug = "SysQLog" );
-        ~SysQLogger( void );
+        CuemsLogger( const string slug = "SysQLog" );
+        ~CuemsLogger( void );
 
         void logEmergency( const string& message );
         void logAlert( const string& message );
@@ -56,7 +56,7 @@ class SysQLogger
         void logOK( const string& message );
 
         // Static funcion to get our singleton pointer everywhere
-        static SysQLogger* getLogger( void );
+        static CuemsLogger* getLogger( void );
 
         void setNewSlug( const string newSlug );
         string getSlug( void );
@@ -67,13 +67,13 @@ class SysQLogger
         static std::string programSlug;
 
         // Our own singleton pointer
-        static SysQLogger* myObjectPointer;
+        static CuemsLogger* myObjectPointer;
 
-        SysQLogger(const SysQLogger&) {};
-        SysQLogger& operator=(const SysQLogger&){ return *this; };
+        CuemsLogger(const CuemsLogger&) {};
+        CuemsLogger& operator=(const CuemsLogger&){ return *this; };
         
         void log( const string& message );
 
 };
 
-#endif // SYSQLOGGER_CLASS_H
+#endif // CUEMSLOGGER_H

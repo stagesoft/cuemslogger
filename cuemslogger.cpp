@@ -23,19 +23,19 @@
 //////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
-// Stage Lab SysQ logger class source file
+// Stage Lab Cuems logger class source file
 //////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
 
-#include "sysqlogger_class.h"
+#include "cuemslogger.h"
 
 // Static class members initialize
-SysQLogger* SysQLogger::myObjectPointer = NULL;
-std::string SysQLogger::programSlug;
+CuemsLogger* CuemsLogger::myObjectPointer = NULL;
+std::string CuemsLogger::programSlug;
 
 //////////////////////////////////////////////////////////
-SysQLogger::SysQLogger ( const string slug )
+CuemsLogger::CuemsLogger ( const string slug )
 {
     // Reinitialize our static log file data
     // logPath = file;
@@ -49,7 +49,7 @@ SysQLogger::SysQLogger ( const string slug )
 }
 
 //////////////////////////////////////////////////////////
-SysQLogger::~SysQLogger (void)
+CuemsLogger::~CuemsLogger (void)
 {
     logInfo("Log finished");
 
@@ -57,70 +57,70 @@ SysQLogger::~SysQLogger (void)
 }
 
 //////////////////////////////////////////////////////////
-SysQLogger* SysQLogger::getLogger( void ) {
+CuemsLogger* CuemsLogger::getLogger( void ) {
     if (myObjectPointer == NULL){
-        myObjectPointer = new SysQLogger();
+        myObjectPointer = new CuemsLogger();
     }
     return myObjectPointer;
 }
 
 //////////////////////////////////////////////////////////
-void SysQLogger::logEmergency(const string& message)
+void CuemsLogger::logEmergency(const string& message)
 {
     syslog( LOG_EMERG, "%s", message.c_str() );
 }
 
 //////////////////////////////////////////////////////////
-void SysQLogger::logAlert(const string& message)
+void CuemsLogger::logAlert(const string& message)
 {
     syslog( LOG_ALERT, "%s", message.c_str() );
 }
 
 //////////////////////////////////////////////////////////
-void SysQLogger::logCritical(const string& message)
+void CuemsLogger::logCritical(const string& message)
 {
     syslog( LOG_CRIT, "%s", message.c_str() );
 }
 
 //////////////////////////////////////////////////////////
-void SysQLogger::logError(const string& message)
+void CuemsLogger::logError(const string& message)
 {
     syslog( LOG_ERR, "%s", message.c_str() );
 }
 
 //////////////////////////////////////////////////////////
-void SysQLogger::logWarning(const string& message)
+void CuemsLogger::logWarning(const string& message)
 {
     syslog( LOG_WARNING, "%s", message.c_str() );
 }
 
 //////////////////////////////////////////////////////////
-void SysQLogger::logNotice(const string& message)
+void CuemsLogger::logNotice(const string& message)
 {
     syslog( LOG_NOTICE, "%s", message.c_str() );
 }
 
 //////////////////////////////////////////////////////////
-void SysQLogger::logInfo(const string& message)
+void CuemsLogger::logInfo(const string& message)
 {
     syslog( LOG_INFO, "%s", message.c_str() );
 }
 
 //////////////////////////////////////////////////////////
-void SysQLogger::logDebug(const string& message)
+void CuemsLogger::logDebug(const string& message)
 {
     syslog( LOG_DEBUG, "%s", message.c_str() );
 }
 
 //////////////////////////////////////////////////////////
-void SysQLogger::logOK(const string& message)
+void CuemsLogger::logOK(const string& message)
 {
     string str = "[OK] " + message;
     syslog( LOG_INFO, "%s", str.c_str() );
 }
 
 //////////////////////////////////////////////////////////
-void SysQLogger::setNewSlug(const string newSlug) {
+void CuemsLogger::setNewSlug(const string newSlug) {
     string str = "Changed program slug from " + programSlug + " to " + newSlug;
 
     logInfo( str.c_str() );
@@ -129,7 +129,7 @@ void SysQLogger::setNewSlug(const string newSlug) {
 }
 
 //////////////////////////////////////////////////////////
-string  SysQLogger::getSlug( void ) {
+string  CuemsLogger::getSlug( void ) {
     return programSlug;
 }
 
