@@ -1,2 +1,2 @@
-# sysqlogger_class
-SysQ system C++ syslog wrapper class
+# cuemslogger_class
+Cuems system C++ syslog wrapper class

@@ -41,7 +41,7 @@ namespace fs = std::filesystem;
 class CuemsLogger
 {
     public:
-        CuemsLogger( const string slug = "SysQLog" );
+        CuemsLogger( const string slug = "CuemsLog" );
         ~CuemsLogger( void );
 
         void logEmergency( const string& message );

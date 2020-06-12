@@ -39,7 +39,7 @@ CuemsLogger::CuemsLogger ( const string slug )
 {
     // Reinitialize our static log file data
     // logPath = file;
-    programSlug = "SysQ:" + slug;
+    programSlug = "Cuems:" + slug;
 
     // Open the file to append text
     // logFile.open( logPath.string(), ios::app );
@@ -125,7 +125,7 @@ void CuemsLogger::setNewSlug(const string newSlug) {
 
     logInfo( str.c_str() );
 
-    programSlug = "SysQ:" + newSlug;
+    programSlug = "Cuems:" + newSlug;
 }
 
 //////////////////////////////////////////////////////////
