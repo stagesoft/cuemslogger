@@ -125,7 +125,12 @@ void CuemsLogger::setNewSlug(const string newSlug) {
 
     logInfo( str.c_str() );
 
+    // Syslog keeps the pointer to identification string until the log is closed.
+    // Modifying programSlug may change the data address, so we need
+    // to close the log first.
+    closelog();
     programSlug = "Cuems:" + newSlug;
+    openlog( programSlug.c_str(), LOG_CONS | LOG_PID | LOG_NDELAY , LOG_LOCAL0 );
 }
 
 //////////////////////////////////////////////////////////
