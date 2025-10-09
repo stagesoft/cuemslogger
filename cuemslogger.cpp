@@ -65,6 +65,14 @@ CuemsLogger* CuemsLogger::getLogger( void ) {
 }
 
 //////////////////////////////////////////////////////////
+void CuemsLogger::cleanup( void ) {
+    if (myObjectPointer != NULL) {
+        delete myObjectPointer;
+        myObjectPointer = NULL;
+    }
+}
+
+//////////////////////////////////////////////////////////
 void CuemsLogger::logEmergency(const string& message)
 {
     syslog( LOG_EMERG, "%s", message.c_str() );

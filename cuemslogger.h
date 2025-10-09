@@ -57,6 +57,9 @@ class CuemsLogger
 
         // Static funcion to get our singleton pointer everywhere
         static CuemsLogger* getLogger( void );
+        
+        // Static function to cleanup singleton
+        static void cleanup( void );
 
         void setNewSlug( const string newSlug );
         string getSlug( void );
