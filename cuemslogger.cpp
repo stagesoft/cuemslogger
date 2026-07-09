@@ -6,7 +6,7 @@
  *   Alex Ramos <alex@stagelab.coop>
  *   Ion Reguera <ion@stagelab.coop>
  *
- * This file is part of cuems-videocomposer.
+ * This file is part of cuemslogger.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
